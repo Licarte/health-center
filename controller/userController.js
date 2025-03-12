@@ -460,7 +460,7 @@ exports.setImmunize = async (req,res)=>{
 
         const isExist = await checkExist(name.toUpperCase())
         if(isExist!==0) throw new Error(`${name} is already Exist!.`)
-            
+
         const setQuery = `
         INSERT INTO immunize(
         name,
@@ -810,7 +810,7 @@ exports.putRecords = async (req,res)=>{
         const {immunize_id,patientName,dateOfConsultation,chiefComplaint,bloodPressure,pulseRate,temperature} = req.body
         
         const setQuery = `
-        UPDATE INTO resources 
+        UPDATE resources 
         SET name=?, date_consultation=?, complaint=?, bloodpressure=?, pulserate=?, temperature=?
         WHERE id=?;`
         const valQuery = [patientName,dateOfConsultation,chiefComplaint,bloodPressure,pulseRate,temperature,immunize_id]
@@ -923,3 +923,4 @@ exports.getAppointment = async (req,res)=>{
         })
     }
 }
+

@@ -21,7 +21,6 @@ router.route('/form-type')
     .put(user.putFormType)
     .delete(user.deleteFormType)
 
-
 //CONSULTATION
 router.get('/consultation/:id',user.getSpecificConsultation)
 router.route('/consultation')
@@ -67,6 +66,14 @@ router.route('/appointment')
 
 //ADMIN
 router.get('/admin-center',admin.adminpage)
+
+router.post('/get-user',admin.getSpecificCenter)
+router.route('/user')
+    .get(admin.getUser)
+    .post(admin.setUser)
+    .put(admin.putUser)
+    .delete(admin.deleteUser)
+
 
 router.get('*',login.redirectpage)
 module.exports = router
